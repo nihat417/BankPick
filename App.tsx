@@ -24,6 +24,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { StyledText } from './src/common/StyledComponents';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -33,7 +34,7 @@ function Section({children, title}: SectionProps): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
-      <Text
+      <StyledText className='bg-red-900'
         style={[
           styles.sectionTitle,
           {
@@ -41,7 +42,7 @@ function Section({children, title}: SectionProps): React.JSX.Element {
           },
         ]}>
         {title}
-      </Text>
+      </StyledText>
       <Text
         style={[
           styles.sectionDescription,
