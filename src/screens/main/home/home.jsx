@@ -15,7 +15,7 @@ const Home = () => {
             </StyledView>
             <HomeSearchSvg/>
         </StyledView>
-        <StyledView className='mx-[20px] my-[20px]'>
+        <StyledView className='mx-[40px] my-[20px]'>
             <Creditcard/>
         </StyledView>
     </StyledScrollView>

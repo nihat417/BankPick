@@ -14,6 +14,7 @@ import TabMyCardsSvg from '../assets/svg/TabMyCardsSvg'
 import TabStaticsSvg from '../assets/svg/TabStaticsSvg'
 import HomeSearchSvg from '../assets/svg/HomeSearchSvg'
 import VisaCreditCardFront from '../assets/svg/VisaCreditCardFront'
+import VisaCreditCardBack from '../assets/svg/VisaCreditCardBack'
 
 
 export const StyledView = styled(View);
@@ -24,4 +25,4 @@ export const StyledScrollView = styled(ScrollView);
 export const StyledImage = styled(Image);
 
 export {BankPickLogoSvg,EmailInputSvg,PasswordSvg,PasswordEyeOnSvg,PasswordEyeOffSvg,GoBackSvg,RegisterPhoneSvg
-    ,TabHomeSvg,TabStaticsSvg,TabMyCardsSvg,TabSettingsSvg,HomeSearchSvg,VisaCreditCardFront}
+    ,TabHomeSvg,TabStaticsSvg,TabMyCardsSvg,TabSettingsSvg,HomeSearchSvg,VisaCreditCardFront,VisaCreditCardBack}

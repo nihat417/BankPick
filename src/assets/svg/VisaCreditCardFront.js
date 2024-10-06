@@ -11,16 +11,16 @@ import Svg, {
 const SvgComponent = (props) => (
   <Svg
     xmlns="http://www.w3.org/2000/svg"
-    width={359}
-    height={219}
+    width={335}
+    height={199}
     fill="none"
     {...props}
   >
-    <Rect width={359} height={219} fill="url(#a)" rx={21} />
+    <Rect width={335} height={199} fill="url(#a)" rx={21} />
     <Mask
       id="c"
-      width={359}
-      height={219}
+      width={335}
+      height={199}
       x={2}
       y={0}
       maskUnits="userSpaceOnUse"
@@ -28,13 +28,13 @@ const SvgComponent = (props) => (
         maskType: "alpha",
       }}
     >
-      <Rect width={359} height={219} x={2} fill="url(#b)" rx={21} />
+      <Rect width={335} height={199} x={2} fill="url(#b)" rx={21} />
     </Mask>
     <G mask="url(#c)">
       <Path
         fill="url(#d)"
         fillOpacity={0.1}
-        d="M318.027 232.034c-9.998-206-492.002-319.999-455.001-114.998l122 102.999c54 37.666 341.166 180.237 333.001 11.999Z"
+        d="M296.9 232.034c-9.33-206-459.11-319.999-424.584-114.998L-13.84 220.035c50.39 37.666 318.359 180.237 310.74 11.999Z"
       />
     </G>
     <Path
@@ -44,10 +44,10 @@ const SvgComponent = (props) => (
     <Defs>
       <LinearGradient
         id="a"
-        x1={336}
-        x2={0}
-        y1={19}
-        y2={214}
+        x1={313.538}
+        x2={4.254}
+        y1={17.265}
+        y2={201.594}
         gradientUnits="userSpaceOnUse"
       >
         <Stop stopColor="#2A2C3C" />
@@ -55,10 +55,10 @@ const SvgComponent = (props) => (
       </LinearGradient>
       <LinearGradient
         id="b"
-        x1={338}
-        x2={2}
-        y1={19}
-        y2={214}
+        x1={315.538}
+        x2={6.254}
+        y1={17.265}
+        y2={201.594}
         gradientUnits="userSpaceOnUse"
       >
         <Stop stopColor="#161616" />
@@ -66,10 +66,10 @@ const SvgComponent = (props) => (
       </LinearGradient>
       <LinearGradient
         id="d"
-        x1={271.026}
-        x2={5}
+        x1={253.041}
+        x2={0.548}
         y1={103.036}
-        y2={206}
+        y2={194.229}
         gradientUnits="userSpaceOnUse"
       >
         <Stop stopColor="#D5D5D5" />
