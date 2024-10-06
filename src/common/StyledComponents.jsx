@@ -6,6 +6,8 @@ import EmailInputSvg from '../assets/svg/EmailInputSvg'
 import PasswordSvg from '../assets/svg/PasswordSvg'
 import PasswordEyeOnSvg from '../assets/svg/PasswordEyeOnSvg'
 import PasswordEyeOffSvg from '../assets/svg/PasswordEyeOffSvg'
+import GoBackSvg from '../assets/svg/GoBackSvg'
+import RegisterPhoneSvg from '../assets/svg/RegisterPhoneSvg'
 
 
 
@@ -16,4 +18,4 @@ export const StyledButton = styled(TouchableOpacity);
 export const StyledScrollView = styled(ScrollView);
 export const StyledImage = styled(Image);
 
-export {BankPickLogoSvg,EmailInputSvg,PasswordSvg,PasswordEyeOnSvg,PasswordEyeOffSvg}
+export {BankPickLogoSvg,EmailInputSvg,PasswordSvg,PasswordEyeOnSvg,PasswordEyeOffSvg,GoBackSvg,RegisterPhoneSvg,}

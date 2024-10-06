@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { BankPickLogoSvg, EmailInputSvg, PasswordEyeOffSvg, PasswordEyeOnSvg, PasswordSvg, StyledButton, StyledInput, StyledText, StyledView } from '../../../common/StyledComponents';
 import { StatusBar } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const Login = () => {
   const [isPasswordVisible, setPasswordVisible] = useState(false);
+  const navigation = useNavigation();
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!isPasswordVisible);
@@ -11,7 +13,6 @@ const Login = () => {
 
   return (
     <StyledView className='bg-[#161622] h-screen'>
-        <StatusBar backgroundColor='#161622'/>
         <StyledView className='mx-[20px] '>
           <StyledText className='text-[34px] text-white mt-[100px] mb-[50px]'>Sign In</StyledText>
 
@@ -40,7 +41,7 @@ const Login = () => {
 
           <StyledView className='flex-row justify-center py-[20px]'>
             <StyledText className='text-white text-[16px]'>I’m a new user.</StyledText>
-            <StyledButton><StyledText className='text-[#0066FF] text-[16px]'> Sign In</StyledText></StyledButton>
+            <StyledButton onPress={()=>navigation.navigate('RegisterScreen')}><StyledText className='text-[#0066FF] text-[16px]'> Sign In</StyledText></StyledButton>
           </StyledView>
         </StyledView>
     </StyledView>
