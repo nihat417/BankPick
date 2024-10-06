@@ -11,7 +11,7 @@ const CreditCard = () => {
   const rotateValue = useSharedValue(0);
 
   const flipCard = () => {
-    rotateValue.value = withTiming(flipped ? 0 : 1, {
+    rotateValue.value = withTiming(flipped ? 0 : 2, {
       duration: 700,
       easing: Easing.inOut(Easing.ease),
     });
@@ -50,9 +50,9 @@ const CreditCard = () => {
 
           <AnimatedStyledView style={[{ position: 'absolute', width: '100%', height: '100%' }, backOpacityStyle]}>
             <VisaCreditCardBack />
-            <StyledText className='absolute self-center text-[26px] bottom-[50%] text-white' style={{ transform: [{ scaleX: -1 }] }}>4562   1122   4595   7852</StyledText>
-            <StyledText className='absolute bottom-[35%] left-[6%] text-[14px] text-white' style={{ transform: [{ scaleX: -1 }] }}>Tanya Myr</StyledText>
-            <StyledText className='absolute bottom-[10%] left-[6%] text-[13px] text-white' style={{ transform: [{ scaleX: -1 }] }}>24/2000</StyledText>
+            <StyledText className='absolute self-center text-[26px] bottom-[50%] text-white' >4562   1122   4595   7852</StyledText>
+            <StyledText className='absolute bottom-[35%] left-[6%] text-[14px] text-white' >Tanya Myr</StyledText>
+            <StyledText className='absolute bottom-[10%] left-[6%] text-[13px] text-white' >24/2000</StyledText>
             <StyledText className='absolute bottom-[10%] left-[30%] text-[13px] text-white' style={{ transform: [{ scaleX: -1 }] }}>6986</StyledText>
           </AnimatedStyledView>
         </Animated.View>
