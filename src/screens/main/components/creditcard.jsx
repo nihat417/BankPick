@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
-import Animated, { Easing, useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
+import { TouchableWithoutFeedback } from 'react-native';
+import Animated, { Easing, useSharedValue, useAnimatedStyle, withTiming, runOnJS } from 'react-native-reanimated';
 import { StyledView, VisaCreditCardBack, VisaCreditCardFront, StyledText } from '../../../common/StyledComponents';
 
 const CreditCard = () => {
@@ -9,11 +9,13 @@ const CreditCard = () => {
   const rotateValue = useSharedValue(0);
 
   const flipCard = () => {
-    setFlipped(!flipped);
-    
     rotateValue.value = withTiming(flipped ? 0 : 1, {
       duration: 700,
       easing: Easing.inOut(Easing.ease),
+    }, (isFinished) => {
+      if (isFinished) {
+        runOnJS(setFlipped)(!flipped);
+      }
     });
   };
 
@@ -27,7 +29,7 @@ const CreditCard = () => {
     <TouchableWithoutFeedback onPress={flipCard}>
       <StyledView>
         <Animated.View style={animatedStyle}>
-          {flipped ? (
+          {rotateValue.value >= 0.5 ? (
             <StyledView>
               <VisaCreditCardBack />
               <StyledText className='absolute self-center text-[26px] bottom-[50%] text-white'>4562   1122   4595   7852</StyledText>
