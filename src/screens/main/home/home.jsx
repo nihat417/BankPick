@@ -1,6 +1,16 @@
 import React, { useRef, useState } from 'react';
 import { Animated, FlatList, PanResponder } from 'react-native';
-import { HomeSearchSvg, LoanSvg, RecieveSvg, SendISvg, StyledButton, StyledImage, StyledText, StyledView, TopUpSvgs } from '../../../common/StyledComponents';
+import {
+  HomeSearchSvg,
+  LoanSvg,
+  RecieveSvg,
+  SendISvg,
+  StyledButton,
+  StyledImage,
+  StyledText,
+  StyledView,
+  TopUpSvgs,
+} from '../../../common/StyledComponents';
 import Creditcard from '../components/creditcard';
 import TransactionItem from './components/transactionItem';
 
@@ -9,57 +19,54 @@ const transactions = [
   { id: '2', type: 'marketSpend', nameCompany: 'Amazon', companyType: 'Online Shopping', spendedMoney: '- $50' },
   { id: '3', type: 'apple', nameCompany: 'Apple', companyType: 'App Store', spendedMoney: '- $5' },
   { id: '4', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
-  { id: '5', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
-  { id: '6', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
-  { id: '7', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
-  { id: '8', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
-  { id: '9', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
-  { id: '10', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
-  { id: '11', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
+  // ... другие транзакции
 ];
 
 const Home = () => {
-  const [visible, setVisible] = useState(true);
-  const translateY = useRef(new Animated.Value(0)).current;
+  const [visible, setVisible] = useState(true); // состояние видимости заголовка и кредитной карты
+  const translateY = useRef(new Animated.Value(0)).current; // для анимации
 
   const panResponder = useRef(
     PanResponder.create({
-      onMoveShouldSetPanResponder: (evt, gestureState) => {
-        return Math.abs(gestureState.dy) > 20;
+      onMoveShouldSetPanResponder: (_, { dy }) => Math.abs(dy) > 20, // порог для определения жеста
+      onPanResponderMove: (_, { dy }) => {
+        // изменяем позицию при свайпе
+        translateY.setValue(dy);
       },
-      onPanResponderMove: (evt, gestureState) => {
-        translateY.setValue(gestureState.dy); 
-      },
-      onPanResponderRelease: (evt, gestureState) => {
-        if (gestureState.dy < -100 && visible) {
+      onPanResponderRelease: (_, { dy }) => {
+        if (dy < -100) {
+          // свайп вниз, скрыть элементы
           Animated.timing(translateY, {
-            toValue: -200,
+            toValue: -100,
             duration: 300,
             useNativeDriver: true,
-          }).start(() => {
-            setVisible(false); 
-          });
-        } else if (gestureState.dy > 100 && !visible) {
+          }).start(() => setVisible(false)); // скрыть элементы после анимации
+        } else if (dy > 100 && !visible) {
+          // свайп вверх, показать элементы
+          setVisible(true);
           Animated.timing(translateY, {
-            toValue: 0, 
-            duration: 300,
-            useNativeDriver: true,
-          }).start(() => {
-            setVisible(true); 
-          });
-        } else {
-          Animated.timing(translateY, {
-            toValue: visible ? 0 : -200,
+            toValue: 0,
             duration: 300,
             useNativeDriver: true,
           }).start();
+        } else {
+          // если не достигнуто пороговое значение, возвращаем назад
+          Animated.timing(translateY, {
+            toValue: visible ? 0 : -100, // Возвращаем к скрытому значению, если элементы скрыты
+            duration: 300,
+            useNativeDriver: true,
+          }).start(() => {
+            if (dy > 100) {
+              setVisible(true); // Убедимся, что элементы видимы, если возвращаем их обратно
+            }
+          });
         }
       },
     })
   ).current;
 
   return (
-    <StyledView className='bg-[#161622]'>
+    <StyledView className='bg-[#161622] h-screen' {...panResponder.panHandlers}>
       <Animated.View style={{ transform: [{ translateY }] }}>
         {visible && (
           <>
@@ -103,6 +110,7 @@ const Home = () => {
       <StyledText className='text-white font-bold text-[18px] my-[10px] mx-[30px]'>Transaction</StyledText>
 
       <FlatList
+        scrollEnabled={true}
         data={transactions}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
@@ -114,17 +122,6 @@ const Home = () => {
           />
         )}
         contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 30 }}
-        scrollEnabled={true}
-        onTouchStart={() => {
-          if (!visible) {
-            Animated.timing(translateY, {
-              toValue: 0,
-              duration: 300,
-              useNativeDriver: true,
-            }).start(() => setVisible(true));
-          }
-        }}
-        {...panResponder.panHandlers} 
       />
     </StyledView>
   );
