@@ -5,6 +5,7 @@ import React from 'react'
 import NavTab from './navTab';
 import Home from '../../main/home/home';
 import Mycards from '../../main/mycards/myCards';
+import Statistic from '../../main/statistics/statistic';
 
 
 const Tabs = createBottomTabNavigator();
@@ -30,12 +31,21 @@ const MyCardsStack = () =>{
   )
 }
 
+const MyStaticsStack = () =>{
+  return(
+    <StaticsStack.Navigator>
+      <StaticsStack.Screen options={{headerShown:false}} name='StatisticsPage' component={Statistic}/>
+    </StaticsStack.Navigator>
+  )
+}
+
 const MainNavTab = () => {
   return (
     <NavigationContainer>
         <Tabs.Navigator initialRouteName="Home" screenOptions={{headerShown: false}} tabBar={props => <NavTab {...props} />}>
             <Tabs.Screen name="Home" component={MyHomeStack}/>
             <Tabs.Screen name="Cards" component={MyCardsStack}/>
+            <Tabs.Screen name="Statistics" component={MyStaticsStack}/>
         </Tabs.Navigator>
     </NavigationContainer>
   )

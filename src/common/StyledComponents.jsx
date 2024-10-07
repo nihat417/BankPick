@@ -29,6 +29,7 @@ import LogOut from '../assets/svg/LogOut'
 import CardUnionSvg from '../assets/svg/CardUnionSvg'
 import MasterCardFrontSvg from '../assets/svg/MasterCardFrontSvg'
 import MasterCreditCardBack from '../assets/svg/MasterCreditCardBack'
+import BellSvg from '../assets/svg/BellSvg'
 
 
 export const StyledView = styled(View);
@@ -41,4 +42,4 @@ export const StyledImage = styled(Image);
 export {BankPickLogoSvg,EmailInputSvg,PasswordSvg,PasswordEyeOnSvg,PasswordEyeOffSvg,GoBackSvg,RegisterPhoneSvg
     ,TabHomeSvg,TabStaticsSvg,TabMyCardsSvg,TabSettingsSvg,HomeSearchSvg,MasterCreditCardBack,
     VisaCreditCardFront,VisaCreditCardBack,RecieveSvg,SendISvg,TopUpSvgs,LoanSvg,MasterCardFrontSvg,
-    AppleSvg,SpotifySvg,MonetTransferSvg,MarketSpendSvg,LogOut,ProfileSvg,AddSvg,CardUnionSvg}
+    AppleSvg,SpotifySvg,MonetTransferSvg,MarketSpendSvg,LogOut,ProfileSvg,AddSvg,CardUnionSvg,BellSvg}

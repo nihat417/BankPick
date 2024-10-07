@@ -16,7 +16,7 @@ const Mycards = () => {
     <StyledView className='bg-[#161622] h-screen'>
 
         {/* //header */}
-        <StyledView className='flex-row justify-between mx-[20px] my-[40px] items-center'>
+        <StyledView className='flex-row justify-between m-[20px] items-center'>
             <GoBackSvg/>
             <StyledText className='text-white text-[18px]'>My Cards</StyledText>
             <StyledButton>
