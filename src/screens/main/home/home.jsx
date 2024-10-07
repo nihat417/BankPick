@@ -18,17 +18,26 @@ const transactions = [
   { id: '1', type: 'spotify', nameCompany: 'Spotify', companyType: 'Music Streaming', spendedMoney: '+ $10' },
   { id: '2', type: 'marketSpend', nameCompany: 'Amazon', companyType: 'Online Shopping', spendedMoney: '- $50' },
   { id: '3', type: 'apple', nameCompany: 'Apple', companyType: 'App Store', spendedMoney: '- $5' },
-  { id: '4', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
-  // ... другие транзакции
+  { id: '6', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
+  { id: '7', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
+  { id: '8', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
+  { id: '9', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
+  { id: '10', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
+  { id: '11', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
+  { id: '12', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
+  { id: '13', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
+  { id: '14', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
+  { id: '15', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
+  { id: '16', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
 ];
 
 const Home = () => {
-  const [visible, setVisible] = useState(true); // состояние видимости заголовка и кредитной карты
-  const translateY = useRef(new Animated.Value(0)).current; // для анимации
+  const [visible, setVisible] = useState(true);
+  const translateY = useRef(new Animated.Value(0)).current; 
 
   const panResponder = useRef(
     PanResponder.create({
-      onMoveShouldSetPanResponder: (_, { dy }) => Math.abs(dy) > 20, // порог для определения жеста
+      onMoveShouldSetPanResponder: (_, { dy }) => Math.abs(dy) > 20,
       onPanResponderMove: (_, { dy }) => {
         // изменяем позицию при свайпе
         translateY.setValue(dy);
@@ -105,24 +114,26 @@ const Home = () => {
             </StyledView>
           </>
         )}
+
+
+        <StyledText className='text-white font-bold text-[18px] my-[10px] mx-[30px]'>Transaction</StyledText>
+
+        <FlatList
+          scrollEnabled={true}
+          data={transactions}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <TransactionItem
+              type={item.type}
+              nameCompany={item.nameCompany}
+              companyType={item.companyType}
+              spendedMoney={item.spendedMoney}
+            />
+          )}
+          contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 30 }}
+        />
       </Animated.View>
 
-      <StyledText className='text-white font-bold text-[18px] my-[10px] mx-[30px]'>Transaction</StyledText>
-
-      <FlatList
-        scrollEnabled={true}
-        data={transactions}
-        keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <TransactionItem
-            type={item.type}
-            nameCompany={item.nameCompany}
-            companyType={item.companyType}
-            spendedMoney={item.spendedMoney}
-          />
-        )}
-        contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 30 }}
-      />
     </StyledView>
   );
 };
