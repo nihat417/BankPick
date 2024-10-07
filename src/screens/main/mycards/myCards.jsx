@@ -1,11 +1,17 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { useSharedValue } from 'react-native-reanimated';
+import { Slider } from 'react-native-awesome-slider';   
 import React from 'react'
 import { AddSvg, GoBackSvg, StyledButton, StyledScrollView, StyledText, StyledView } from '../../../common/StyledComponents';
 import CreditCardVisa from '../components/creditcardVisa';
 import CreditCardMaster from '../components/creditCardMaster';
 import TransactionItem from '../home/components/transactionItem';
+import { StyleSheet } from 'react-native';
 
 const Mycards = () => {
+    const progress = useSharedValue(30);
+    const min = useSharedValue(0);
+    const max = useSharedValue(100);
+
   return (
     <StyledView className='bg-[#161622] h-screen'>
 
@@ -39,13 +45,27 @@ const Mycards = () => {
 
         <StyledText className='text-white text-[18px] mx-[30px] my-[10px]'>Monthly spending limit</StyledText>
 
-        <StyledView className='mx-[30px] bg-[#232533] p-[10px] rounded-[10px]'>
+        <StyledView className='mx-[30px] bg-[#232533] p-[10px] rounded-[15px]'>
             <StyledView className='flex-row'>
                 <StyledText className='text-white text-[13px]'>Amount: </StyledText>
                 <StyledText className='text-white text-[13px]'>$8,545.00</StyledText>
             </StyledView>
-            <StyledView>
-                
+            <StyledView className='my-[20px]'>
+                <Slider theme={{
+                        maximumTrackTintColor: '#292937',
+                        minimumTrackTintColor: '#fff',
+                        cacheTrackTintColor: '#333',
+                        bubbleBackgroundColor: '#666',
+                        heartbeatColor: '#999',}}
+                    progress={progress}
+                    minimumValue={min}
+                    maximumValue={max}
+                    />
+                    <StyledView className='flex-row justify-between mt-[15px]'>
+                        <StyledText className='text-white text-[13px]'>$0</StyledText>
+                        <StyledText className='text-white text-[13px]'>$4,600</StyledText>
+                        <StyledText className='text-white text-[13px]'>$10,000</StyledText>
+                    </StyledView>
             </StyledView>
         </StyledView>
     </StyledView>
