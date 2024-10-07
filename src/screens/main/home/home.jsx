@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
 import Animated, {useSharedValue,useAnimatedScrollHandler,useAnimatedStyle,interpolate,Extrapolate,} from 'react-native-reanimated';
 import {HomeSearchSvg,LoanSvg,RecieveSvg,SendISvg,StyledButton,StyledImage,StyledText,StyledView,TopUpSvgs,} from '../../../common/StyledComponents';
-import Creditcard from '../components/creditcard';
+import CreditCardVisa from '../components/creditcardVisa';
 import TransactionItem from './components/transactionItem';
 
 const AnimatedFlatList = Animated.FlatList;
@@ -101,7 +101,7 @@ const Home = () => {
         </StyledView>
 
         <StyledView className='mx-[20px] my-[20px]'>
-          <Creditcard />
+          <CreditCardVisa />
         </StyledView>
 
         <StyledView className='flex-row justify-between mx-[30px] my-[20px]'>

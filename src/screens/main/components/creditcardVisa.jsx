@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
 import Animated, { Easing, useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
-import { StyledView, VisaCreditCardBack, VisaCreditCardFront, StyledText } from '../../../common/StyledComponents';
+import { StyledView, VisaCreditCardBack, VisaCreditCardFront, StyledText, CardUnionSvg } from '../../../common/StyledComponents';
 
 const AnimatedStyledView = Animated.createAnimatedComponent(StyledView);
 
-const CreditCard = () => {
+const CreditCardVisa = () => {
   const [flipped, setFlipped] = useState(false);
   
   const rotateValue = useSharedValue(0);
@@ -50,10 +50,11 @@ const CreditCard = () => {
 
           <AnimatedStyledView style={[{ position: 'absolute', width: '100%', height: '100%' }, backOpacityStyle]}>
             <VisaCreditCardBack />
+            <StyledView className="absolute top-[10%] right-[10%]"><CardUnionSvg/></StyledView>
             <StyledText className='absolute self-center text-[26px] bottom-[50%] text-white' >4562   1122   4595   7852</StyledText>
-            <StyledText className='absolute bottom-[35%] left-[6%] text-[14px] text-white' >Tanya Myr</StyledText>
-            <StyledText className='absolute bottom-[10%] left-[6%] text-[13px] text-white' >24/2000</StyledText>
-            <StyledText className='absolute bottom-[10%] left-[30%] text-[13px] text-white'>6986</StyledText>
+            <StyledText className='absolute bottom-[37%] left-[6%] text-[14px] text-white' >Tanya Myr</StyledText>
+            <StyledText className='absolute bottom-[17%] left-[5%] text-[13px] text-white' >24/2000</StyledText>
+            <StyledText className='absolute bottom-[17%] left-[27%] text-[13px] text-white'>6986</StyledText>
           </AnimatedStyledView>
         </Animated.View>
       </AnimatedStyledView>
@@ -61,4 +62,4 @@ const CreditCard = () => {
   );
 };
 
-export default CreditCard;
+export default CreditCardVisa;

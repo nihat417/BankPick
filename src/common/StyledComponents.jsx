@@ -23,6 +23,12 @@ import SpotifySvg from '../assets/svg/SpotifySvg'
 import AppleSvg from '../assets/svg/AppleSvg'
 import MonetTransferSvg from '../assets/svg/MonetTransferSvg'
 import MarketSpendSvg from '../assets/svg/MarketSpendSvg'
+import AddSvg from '../assets/svg/AddSvg'
+import ProfileSvg from '../assets/svg/ProfileSvg'
+import LogOut from '../assets/svg/LogOut'
+import CardUnionSvg from '../assets/svg/CardUnionSvg'
+import MasterCardFrontSvg from '../assets/svg/MasterCardFrontSvg'
+import MasterCreditCardBack from '../assets/svg/MasterCreditCardBack'
 
 
 export const StyledView = styled(View);
@@ -33,6 +39,6 @@ export const StyledScrollView = styled(ScrollView);
 export const StyledImage = styled(Image);
 
 export {BankPickLogoSvg,EmailInputSvg,PasswordSvg,PasswordEyeOnSvg,PasswordEyeOffSvg,GoBackSvg,RegisterPhoneSvg
-    ,TabHomeSvg,TabStaticsSvg,TabMyCardsSvg,TabSettingsSvg,HomeSearchSvg,
-    VisaCreditCardFront,VisaCreditCardBack,RecieveSvg,SendISvg,TopUpSvgs,LoanSvg,
-    AppleSvg,SpotifySvg,MonetTransferSvg,MarketSpendSvg}
+    ,TabHomeSvg,TabStaticsSvg,TabMyCardsSvg,TabSettingsSvg,HomeSearchSvg,MasterCreditCardBack,
+    VisaCreditCardFront,VisaCreditCardBack,RecieveSvg,SendISvg,TopUpSvgs,LoanSvg,MasterCardFrontSvg,
+    AppleSvg,SpotifySvg,MonetTransferSvg,MarketSpendSvg,LogOut,ProfileSvg,AddSvg,CardUnionSvg}

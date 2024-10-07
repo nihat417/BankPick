@@ -1,4 +1,3 @@
-import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { AppleSvg, MarketSpendSvg, MonetTransferSvg, SpotifySvg, StyledText, StyledView } from '../../../../common/StyledComponents';
 
