@@ -10,7 +10,7 @@ import { AddSvg, GoBackSvg, StyledButton, StyledText, StyledView } from '../../.
 import CreditCardVisa from '../components/creditcardVisa';
 import CreditCardMaster from '../components/creditCardMaster';
 import TransactionItem from '../home/components/transactionItem';
-import { Slider } from 'react-native-awesome-slider'; // Убедитесь, что эта библиотека поддерживает передаваемые пропсы
+import { Slider } from 'react-native-awesome-slider'; 
 
 const { width } = Dimensions.get('window');
 
@@ -69,7 +69,7 @@ const Mycards = () => {
         </Animated.ScrollView>
       </StyledView>
 
-      <StyledView className='mx-[20px] my-0'>
+      <StyledView className='mx-[20px] '>
         <TransactionItem type="spotify" nameCompany='Spotify' companyType='Music Streaming' spendedMoney='- $10' />
         <TransactionItem type="marketSpend" nameCompany='Amazon' companyType='Online Shopping' spendedMoney='- $15' />
         <TransactionItem type="apple" nameCompany='Apple' companyType='App Store' spendedMoney='- $120' />
