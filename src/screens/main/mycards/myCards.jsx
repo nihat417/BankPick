@@ -6,15 +6,15 @@ import Animated, {
   useSharedValue,
   useAnimatedScrollHandler,
 } from 'react-native-reanimated';
-import { AddSvg, GoBackSvg, StyledButton, StyledText, StyledView } from '../../../common/StyledComponents';
+import { AddSvg, GoBackSvg, StyledButton, StyledScrollView, StyledText, StyledView } from '../../../common/StyledComponents';
 import TransactionItem from '../home/components/transactionItem';
 import { Slider } from 'react-native-awesome-slider';
 import cardsData from './data/cardsData';
 import AnimatedCard from './components/AnimatedCard';
 
 const { width } = Dimensions.get('window');
-const CARD_WIDTH = width - 80; 
-const CARD_SPACING = 0;
+const CARD_WIDTH = width - 60; 
+const CARD_SPACING = 20;
 
 const Mycards = () => {
   const scrollX = useSharedValue(0);
@@ -24,15 +24,15 @@ const Mycards = () => {
   });
 
   const progress = useSharedValue(30);
-    const min = useSharedValue(0);
-    const max = useSharedValue(100);
+  const min = useSharedValue(0);
+  const max = useSharedValue(100);
 
   const renderItem = ({ item, index }) => (
     <AnimatedCard scrollX={scrollX} index={index} card={item} />
   );
 
   return (
-    <StyledView className='bg-[#161622] flex-1'>
+    <StyledScrollView className='bg-[#161622] flex-1'>
       {/* Header */}
       <StyledView className='flex-row justify-between m-[20px] items-center'>
         <GoBackSvg />
@@ -67,7 +67,7 @@ const Mycards = () => {
 
       <StyledText className='text-white text-[18px] mx-[30px] my-[20px]'>Monthly spending limit</StyledText>
 
-      <StyledView className='mx-[30px] bg-[#232533] p-[20px] rounded-[15px]'>
+      <StyledView className='mx-[30px] bg-[#232533] p-[10px] rounded-[15px]'>
         <StyledView className='flex-row'>
           <StyledText className='text-white text-[13px]'>Amount: </StyledText>
           <StyledText className='text-white text-[13px]'>$8,545.00</StyledText>
@@ -87,7 +87,7 @@ const Mycards = () => {
           </StyledView>
         </StyledView>
       </StyledView>
-    </StyledView>
+    </StyledScrollView>
   );
 };
 

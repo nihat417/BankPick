@@ -1,13 +1,10 @@
-// components/AnimatedCard.js
-
 import React from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
 import Animated, { useAnimatedStyle, interpolate, Extrapolate } from 'react-native-reanimated';
-import { StyledView } from '../../../common/StyledComponents';
 
 const { width } = Dimensions.get('window');
-const CARD_WIDTH = width - 50; 
-const CARD_SPACING = 30;
+const CARD_WIDTH = width * 1.1; 
+const CARD_SPACING = width * 0.05;
 
 const AnimatedCard = ({ scrollX, index, card }) => {
   const animatedStyle = useAnimatedStyle(() => {
