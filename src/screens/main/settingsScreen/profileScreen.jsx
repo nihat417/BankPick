@@ -1,8 +1,6 @@
-import { Settings, StyleSheet, Text, View } from 'react-native'
-import React,{useContext,useEffect,useState,useCallback} from 'react';
+import React,{useContext,useCallback} from 'react';
 import { TabBarVisibilityContext } from '../../../contexts/TabBarVisibilityContext';
 import { StyledView,StyledButton,GoBackSvg,StyledText,ProfileSvg, StyledImage, UserSvg, RightArrowSvg, PaymentSvg, PaymentFinanceSvg, ProfileBellSvg, MessageSvg, LocationSvg, TabSettingsSvg } from '../../../common/StyledComponents';
-import { LocalSvg } from 'react-native-svg';
 import { useNavigation,useFocusEffect } from '@react-navigation/native';
 
 const ProfileScreen = () => {
@@ -22,13 +20,13 @@ const ProfileScreen = () => {
 
         {/* header */}
         <StyledView className='flex-row justify-between mx-[20px] my-[40px] items-center'>
-                <StyledButton onPress={()=>navigation.goBack()}>
-                    <GoBackSvg/>
-                </StyledButton>
-                <StyledText className='text-white text-[18px]'>Settings</StyledText>
-                <StyledButton>
-                    <ProfileSvg/>
-                </StyledButton>
+            <StyledButton onPress={()=>navigation.goBack()}>
+                <GoBackSvg/>
+            </StyledButton>
+            <StyledText className='text-white text-[18px]'>Settings</StyledText>
+            <StyledButton>
+                <ProfileSvg/>
+            </StyledButton>
         </StyledView>
 
         <StyledView className='flex-row mx-[20px] items-center'>
@@ -40,7 +38,7 @@ const ProfileScreen = () => {
         </StyledView>
 
 
-        <StyledButton className='mx-[20px] mt-[20px] mb-[10px] p-[10px] border-b-[1px] border-[#232533]'>
+        <StyledButton onPress={()=>navigation.navigate('PersonalInfoScreen')} className='mx-[20px] mt-[20px] mb-[10px] p-[10px] border-b-[1px] border-[#232533]'>
             <StyledView className='flex-row justify-between'>
                 <StyledView className='flex-row'>
                     <UserSvg/>

@@ -11,6 +11,7 @@ import Statistic from '../../main/statistics/statistic';
 import SettingsScreen from '../../main/settingsScreen/settingsScreen';
 import LanguageScreen from '../../main/settingsScreen/languageScreen';
 import ProfileScreen from '../../main/settingsScreen/profileScreen';
+import PersonalInfo from '../../main/settingsScreen/personalInfo';
 
 
 const Tabs = createBottomTabNavigator();
@@ -50,6 +51,7 @@ const MySettingsStack = () =>{
       <SettingsStack.Screen options={{headerShown:false}} name='SettingsScreen' component={SettingsScreen}/>
       <SettingsStack.Screen options={{headerShown:false}} name='LanguageScreen' component={LanguageScreen}/>
       <SettingsStack.Screen options={{headerShown:false}} name='ProfileScreen' component={ProfileScreen}/>
+      <SettingsStack.Screen options={{headerShown:false}} name='PersonalInfoScreen' component={PersonalInfo}/>
     </SettingsStack.Navigator>
   )
 };
