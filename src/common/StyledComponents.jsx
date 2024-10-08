@@ -30,6 +30,13 @@ import CardUnionSvg from '../assets/svg/CardUnionSvg'
 import MasterCardFrontSvg from '../assets/svg/MasterCardFrontSvg'
 import MasterCreditCardBack from '../assets/svg/MasterCreditCardBack'
 import BellSvg from '../assets/svg/BellSvg'
+import RightArrowSvg from '../assets/svg/RightArrowSvg'
+
+import AzerbaijanFlag from '../assets/svg/countryFlags/AzerbaijanFlag'
+import EnglanFlag from '../assets/svg/countryFlags/EnglanFlag'
+import RussiaFalg from '../assets/svg/countryFlags/RussiaFalg'
+import TrukeyFalg from '../assets/svg/countryFlags/TrukeyFalg'
+
 
 
 export const StyledView = styled(View);
@@ -40,6 +47,6 @@ export const StyledScrollView = styled(ScrollView);
 export const StyledImage = styled(Image);
 
 export {BankPickLogoSvg,EmailInputSvg,PasswordSvg,PasswordEyeOnSvg,PasswordEyeOffSvg,GoBackSvg,RegisterPhoneSvg
-    ,TabHomeSvg,TabStaticsSvg,TabMyCardsSvg,TabSettingsSvg,HomeSearchSvg,MasterCreditCardBack,
-    VisaCreditCardFront,VisaCreditCardBack,RecieveSvg,SendISvg,TopUpSvgs,LoanSvg,MasterCardFrontSvg,
-    AppleSvg,SpotifySvg,MonetTransferSvg,MarketSpendSvg,LogOut,ProfileSvg,AddSvg,CardUnionSvg,BellSvg}
+    ,TabHomeSvg,TabStaticsSvg,TabMyCardsSvg,TabSettingsSvg,HomeSearchSvg,MasterCreditCardBack,RightArrowSvg,AzerbaijanFlag,
+    VisaCreditCardFront,VisaCreditCardBack,RecieveSvg,SendISvg,TopUpSvgs,LoanSvg,MasterCardFrontSvg,EnglanFlag,
+    AppleSvg,SpotifySvg,MonetTransferSvg,MarketSpendSvg,LogOut,ProfileSvg,AddSvg,CardUnionSvg,BellSvg,TrukeyFalg,RussiaFalg}

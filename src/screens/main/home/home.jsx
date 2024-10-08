@@ -100,7 +100,7 @@ const Home = () => {
           <HomeSearchSvg />
         </StyledView>
 
-        <StyledView className='mx-[20px] my-[20px]'>
+        <StyledView className='mx-[30px] my-[20px]'>
           <CreditCardVisa />
         </StyledView>
 

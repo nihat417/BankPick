@@ -6,6 +6,7 @@ import NavTab from './navTab';
 import Home from '../../main/home/home';
 import Mycards from '../../main/mycards/myCards';
 import Statistic from '../../main/statistics/statistic';
+import SettingsScreen from '../../main/settingsScreen/settingsScreen';
 
 
 const Tabs = createBottomTabNavigator();
@@ -29,7 +30,7 @@ const MyCardsStack = () =>{
       <CardsStack.Screen options={{headerShown:false}} name="CardPage" component={Mycards}/>
     </CardsStack.Navigator>
   )
-}
+};
 
 const MyStaticsStack = () =>{
   return(
@@ -37,7 +38,15 @@ const MyStaticsStack = () =>{
       <StaticsStack.Screen options={{headerShown:false}} name='StatisticsPage' component={Statistic}/>
     </StaticsStack.Navigator>
   )
-}
+};
+
+const MySettingsStack = () =>{
+  return(
+    <SettingsStack.Navigator>
+      <SettingsStack.Screen options={{headerShown:false}} name='SettingsScreen' component={SettingsScreen}/>
+    </SettingsStack.Navigator>
+  )
+};
 
 const MainNavTab = () => {
   return (
@@ -46,6 +55,7 @@ const MainNavTab = () => {
             <Tabs.Screen name="Home" component={MyHomeStack}/>
             <Tabs.Screen name="Cards" component={MyCardsStack}/>
             <Tabs.Screen name="Statistics" component={MyStaticsStack}/>
+            <Tabs.Screen name="SettingsPg" component={MySettingsStack}/>
         </Tabs.Navigator>
     </NavigationContainer>
   )

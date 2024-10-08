@@ -18,7 +18,7 @@ const TransactionItem = ({type,nameCompany,companyType,spendedMoney}) => {
         }
       };
   return (
-    <StyledView className='flex-row justify-between items-center p-[5px] my-[10px]'>
+    <StyledView className='flex-row justify-between items-center p-[10px] my-[5px]'>
         <StyledView className='flex-row'>
             {renderIcon(type)}
             <StyledView className='mx-[10px]'>
@@ -26,7 +26,7 @@ const TransactionItem = ({type,nameCompany,companyType,spendedMoney}) => {
                 <StyledText className='text-[#707070] text-[13px]'>{companyType}</StyledText>
             </StyledView>
         </StyledView>
-            <StyledText className=' text-[#fff] text-[17px] font-medium'>{spendedMoney}</StyledText>
+            <StyledText className='text-[#fff] text-[17px] font-medium'>{spendedMoney}</StyledText>
     </StyledView>
   )
 }
