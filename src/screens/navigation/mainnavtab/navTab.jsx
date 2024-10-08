@@ -13,7 +13,7 @@ const NavTab = ({ state, navigation }) => {
             </StyledButton>
             <StyledButton onPress={() => navigation.navigate('Cards', { screen: 'CardPage' })} style={styles.button}>
                 <TabMyCardsSvg color={getIconColor(1)} />
-                <StyledText style={[styles.label, { color: getIconColor(1) }]}>Search</StyledText>
+                <StyledText style={[styles.label, { color: getIconColor(1) }]}>My Cards</StyledText>
             </StyledButton>
             <StyledButton onPress={() => navigation.navigate('Statistics', { screen: 'StatisticsPage' })} style={styles.button}>
                 <TabStaticsSvg color={getIconColor(2)} />

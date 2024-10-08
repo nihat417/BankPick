@@ -22,7 +22,7 @@ const LanguageScreen = () => {
         <StyledScrollView className='bg-[#161622] h-screen'>
             {/* Header */}
             <StyledView className='flex-row justify-between mx-[20px] my-[40px] items-center'>
-                <StyledButton>
+                <StyledButton onPress={()=>navigation.goBack()}>
                     <GoBackSvg/>
                 </StyledButton>
                 <StyledText className='mr-[30px] text-white text-[18px]'>Language</StyledText>
