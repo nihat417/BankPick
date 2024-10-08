@@ -21,13 +21,12 @@ const LanguageScreen = () => {
     return (
         <StyledScrollView className='bg-[#161622] h-screen'>
             {/* Header */}
-            <StyledView  className='relative mx-[20px] my-[40px] h-[50px]'>
-                <StyledButton onPress={()=>navigation.goBack()} className='absolute left-0 top-0 bottom-0 justify-center'>
-                    <GoBackSvg />
+            <StyledView className='flex-row justify-between mx-[20px] my-[40px] items-center'>
+                <StyledButton>
+                    <GoBackSvg/>
                 </StyledButton>
-                <StyledText className='text-white text-[18px] text-center'>
-                    Language
-                </StyledText>
+                <StyledText className='mr-[30px] text-white text-[18px]'>Language</StyledText>
+                <StyledView></StyledView>
             </StyledView>
 
             {/* Search */}
