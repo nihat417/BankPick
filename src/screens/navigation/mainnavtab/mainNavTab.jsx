@@ -7,6 +7,7 @@ import Home from '../../main/home/home';
 import Mycards from '../../main/mycards/myCards';
 import Statistic from '../../main/statistics/statistic';
 import SettingsScreen from '../../main/settingsScreen/settingsScreen';
+import LanguageScreen from '../../main/settingsScreen/languageScreen';
 
 
 const Tabs = createBottomTabNavigator();
@@ -44,6 +45,7 @@ const MySettingsStack = () =>{
   return(
     <SettingsStack.Navigator>
       <SettingsStack.Screen options={{headerShown:false}} name='SettingsScreen' component={SettingsScreen}/>
+      <SettingsStack.Screen options={{headerShown:false}} name='LanguageScreen' component={LanguageScreen}/>
     </SettingsStack.Navigator>
   )
 };
