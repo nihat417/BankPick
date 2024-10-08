@@ -53,10 +53,10 @@ const CreditCardMaster = () => {
 
                 <AnimatedStyledView style={[{ position: 'absolute', width: '100%', height: '100%' }, backOpacityStyle]}>
                     <MasterCreditCardBack/>
-                    <StyledText className='absolute self-center text-[26px] bottom-[52%] text-white' >4562   1122   4595   7852</StyledText>
+                    <StyledText className='absolute self-center text-[26px] left-[10%] bottom-[52%] text-white' >4562   1122   4595   7852</StyledText>
                     <StyledText className='absolute bottom-[30%] left-[4%] text-[13px] text-white' >Tanya Myr</StyledText>
                     <StyledText className='absolute bottom-[5%] left-[4%] text-[13px] text-white' >07/2027</StyledText>
-                    <StyledText className='absolute bottom-[5%] left-[32%] text-[13px] text-white' >4567</StyledText>
+                    <StyledText className='absolute bottom-[5%] left-[25.5%] text-[13px] text-white' >4567</StyledText>
                 </AnimatedStyledView>
             </Animated.View>
         </AnimatedStyledView>

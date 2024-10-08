@@ -1,11 +1,22 @@
 import { Settings, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React,{useContext,useEffect,useState,useCallback} from 'react';
+import { TabBarVisibilityContext } from '../../../contexts/TabBarVisibilityContext';
 import { StyledView,StyledButton,GoBackSvg,StyledText,ProfileSvg, StyledImage, UserSvg, RightArrowSvg, PaymentSvg, PaymentFinanceSvg, ProfileBellSvg, MessageSvg, LocationSvg, TabSettingsSvg } from '../../../common/StyledComponents';
 import { LocalSvg } from 'react-native-svg';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation,useFocusEffect } from '@react-navigation/native';
 
 const ProfileScreen = () => {
+    const { setTabBarVisible } = useContext(TabBarVisibilityContext);
     const navigation = useNavigation();
+    
+    useFocusEffect(
+        useCallback(() => {
+          setTabBarVisible(false);
+          return () => {
+            setTabBarVisible(true);
+          };
+        }, [])
+      );
   return (
     <StyledView className='bg-[#161622] h-screen'>
 

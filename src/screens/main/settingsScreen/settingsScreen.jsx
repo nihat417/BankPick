@@ -5,6 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 
 const SettingsScreen = () => {
     const navigation = useNavigation();
+    
   return (
     <StyledView className='bg-[#161622] h-screen'>
 

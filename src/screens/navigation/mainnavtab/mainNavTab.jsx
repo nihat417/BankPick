@@ -1,6 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { TabBarVisibilityContext,TabBarVisibilityProvider } from '../../../contexts/TabBarVisibilityContext';
+
 import React from 'react'
 import NavTab from './navTab';
 import Home from '../../main/home/home';
@@ -54,14 +56,21 @@ const MySettingsStack = () =>{
 
 const MainNavTab = () => {
   return (
-    <NavigationContainer>
-        <Tabs.Navigator initialRouteName="Home" screenOptions={{headerShown: false}} tabBar={props => <NavTab {...props} />}>
-            <Tabs.Screen name="Home" component={MyHomeStack}/>
-            <Tabs.Screen name="Cards" component={MyCardsStack}/>
-            <Tabs.Screen name="Statistics" component={MyStaticsStack}/>
-            <Tabs.Screen name="SettingsPg" component={MySettingsStack}/>
-        </Tabs.Navigator>
-    </NavigationContainer>
+    <TabBarVisibilityProvider>
+      <TabBarVisibilityContext.Consumer>
+        {({isTabBarVisible})=>(
+          <NavigationContainer>
+              <Tabs.Navigator initialRouteName="Home" screenOptions={{headerShown: false}} 
+              tabBar={props => isTabBarVisible ? <NavTab {...props} /> : null}>
+                  <Tabs.Screen name="Home" component={MyHomeStack}/>
+                  <Tabs.Screen name="Cards" component={MyCardsStack}/>
+                  <Tabs.Screen name="Statistics" component={MyStaticsStack}/>
+                  <Tabs.Screen name="SettingsPg" component={MySettingsStack}/>
+              </Tabs.Navigator>
+          </NavigationContainer>
+        )}
+      </TabBarVisibilityContext.Consumer>
+    </TabBarVisibilityProvider>
   )
 }
 
