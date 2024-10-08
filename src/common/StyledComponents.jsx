@@ -42,6 +42,14 @@ import SpainFlag from '../assets/svg/countryFlags/SpainFlag'
 
 
 
+import ProfileBellSvg from '../assets/svg/profileSvgs/BellSvg'
+import LocationSvg from '../assets/svg/profileSvgs/LocationSvg'
+import MessageSvg from '../assets/svg/profileSvgs/MessageSvg'
+import PaymentFinanceSvg from '../assets/svg/profileSvgs/PaymentFinanceSvg'
+import PaymentSvg from '../assets/svg/profileSvgs/PaymentSvg'
+import UserSvg from '../assets/svg/profileSvgs/UserSvg'
+
+
 export const StyledView = styled(View);
 export const StyledText = styled(Text);
 export const StyledInput = styled(TextInput);
@@ -51,5 +59,6 @@ export const StyledImage = styled(Image);
 
 export {BankPickLogoSvg,EmailInputSvg,PasswordSvg,PasswordEyeOnSvg,PasswordEyeOffSvg,GoBackSvg,RegisterPhoneSvg
     ,TabHomeSvg,TabStaticsSvg,TabMyCardsSvg,TabSettingsSvg,HomeSearchSvg,MasterCreditCardBack,RightArrowSvg,AzerbaijanFlag,
-    VisaCreditCardFront,VisaCreditCardBack,RecieveSvg,SendISvg,TopUpSvgs,LoanSvg,MasterCardFrontSvg,EnglanFlag,
-    SpainFlag, AppleSvg,SearchSvg,SelectedLangSvg,SpotifySvg,MonetTransferSvg,MarketSpendSvg,LogOut,ProfileSvg,AddSvg,CardUnionSvg,BellSvg,TrukeyFalg,RussiaFalg}
+    VisaCreditCardFront,VisaCreditCardBack,RecieveSvg,SendISvg,TopUpSvgs,LoanSvg,MasterCardFrontSvg,EnglanFlag,ProfileBellSvg,
+    SpainFlag, AppleSvg,SearchSvg,SelectedLangSvg,SpotifySvg,MonetTransferSvg,MarketSpendSvg,LogOut,ProfileSvg,
+    AddSvg,CardUnionSvg,BellSvg,TrukeyFalg,RussiaFalg,UserSvg,PaymentFinanceSvg,PaymentSvg,MessageSvg,LocationSvg}

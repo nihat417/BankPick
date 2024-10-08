@@ -31,7 +31,7 @@ const SettingsScreen = () => {
             </StyledView>
         </StyledButton>
 
-        <StyledButton className='flex-row justify-between mx-[20px] mt-[20px] p-[10px] border-b-[1px] border-[#232533]'>
+        <StyledButton onPress={()=>navigation.navigate('ProfileScreen')} className='flex-row justify-between mx-[20px] mt-[20px] p-[10px] border-b-[1px] border-[#232533]'>
             <StyledText className='text-white text-[17px]'>My Profile</StyledText>
             <RightArrowSvg/>
         </StyledButton>

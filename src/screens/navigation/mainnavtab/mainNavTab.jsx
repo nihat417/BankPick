@@ -8,6 +8,7 @@ import Mycards from '../../main/mycards/myCards';
 import Statistic from '../../main/statistics/statistic';
 import SettingsScreen from '../../main/settingsScreen/settingsScreen';
 import LanguageScreen from '../../main/settingsScreen/languageScreen';
+import ProfileScreen from '../../main/settingsScreen/profileScreen';
 
 
 const Tabs = createBottomTabNavigator();
@@ -46,6 +47,7 @@ const MySettingsStack = () =>{
     <SettingsStack.Navigator>
       <SettingsStack.Screen options={{headerShown:false}} name='SettingsScreen' component={SettingsScreen}/>
       <SettingsStack.Screen options={{headerShown:false}} name='LanguageScreen' component={LanguageScreen}/>
+      <SettingsStack.Screen options={{headerShown:false}} name='ProfileScreen' component={ProfileScreen}/>
     </SettingsStack.Navigator>
   )
 };
