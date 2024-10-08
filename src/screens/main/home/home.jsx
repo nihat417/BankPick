@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, Dimensions } from 'react-native';
+import React, { useState } from 'react';
+import { Dimensions, StyleSheet, useWindowDimensions } from 'react-native';
 import Animated, {useSharedValue,useAnimatedScrollHandler,useAnimatedStyle,interpolate,Extrapolate,} from 'react-native-reanimated';
 import {HomeSearchSvg,LoanSvg,RecieveSvg,SendISvg,StyledButton,StyledImage,StyledText,StyledView,TopUpSvgs,} from '../../../common/StyledComponents';
 import CreditCardVisa from '../components/creditcardVisa';
@@ -27,7 +27,9 @@ const transactions = [
   { id: '16', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
 ];
 
-const Home = () => {
+const Mycards = () => {
+  const { width } = useWindowDimensions();
+
   const scrollY = useSharedValue(0);
 
   const scrollHandler = useAnimatedScrollHandler({
@@ -83,15 +85,15 @@ const Home = () => {
     };
   });
 
+  const marginHorizontal = width * 0.05;
+
   return (
     <StyledView style={styles.container}>
       <Animated.View style={[styles.header, headerAnimatedStyle]}>
+        {/* Header */}
         <StyledView className='flex-row m-[20px] justify-between items-center'>
           <StyledView className='flex-row items-center'>
-            <StyledImage
-              className='w-[50px] h-[50px]'
-              source={require('../../../assets/images/mepht.png')}
-            />
+            <StyledImage className='w-[50px] h-[50px]' source={require('../../../assets/images/mepht.png')}/>
             <StyledView className='mx-[20px]'>
               <StyledText className='text-[#7E848D] text-[12px]'>Welcome back,</StyledText>
               <StyledText className='text-white text-[18px]'>Tanya Myroniuk</StyledText>
@@ -100,7 +102,7 @@ const Home = () => {
           <HomeSearchSvg />
         </StyledView>
 
-        <StyledView className='mx-[30px] my-[20px]'>
+        <StyledView style={{ marginHorizontal, marginVertical: 20 }}>
           <CreditCardVisa />
         </StyledView>
 
@@ -123,11 +125,10 @@ const Home = () => {
           </StyledButton>
         </StyledView>
 
-      <Animated.Text style={[styles.transactionHeader, contentAnimatedStyle]}>
-        Transaction
-      </Animated.Text>
+        <Animated.Text style={[styles.transactionHeader, contentAnimatedStyle]}>
+          Transaction
+        </Animated.Text>
       </Animated.View>
-
 
       <AnimatedFlatList
         data={transactions}
@@ -179,8 +180,8 @@ const styles = StyleSheet.create({
   },
   flatList: {
     flex: 1,
-    marginBottom:40
+    marginBottom: 40,
   },
 });
 
-export default Home;
+export default Mycards;
