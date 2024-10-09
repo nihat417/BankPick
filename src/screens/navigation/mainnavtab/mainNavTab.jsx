@@ -12,6 +12,7 @@ import SettingsScreen from '../../main/settingsScreen/settingsScreen';
 import LanguageScreen from '../../main/settingsScreen/languageScreen';
 import ProfileScreen from '../../main/settingsScreen/profileScreen';
 import PersonalInfo from '../../main/settingsScreen/personalInfo';
+import AllCrads from '../../main/settingsScreen/allCrads';
 
 
 const Tabs = createBottomTabNavigator();
@@ -52,6 +53,7 @@ const MySettingsStack = () =>{
       <SettingsStack.Screen options={{headerShown:false}} name='LanguageScreen' component={LanguageScreen}/>
       <SettingsStack.Screen options={{headerShown:false}} name='ProfileScreen' component={ProfileScreen}/>
       <SettingsStack.Screen options={{headerShown:false}} name='PersonalInfoScreen' component={PersonalInfo}/>
+      <SettingsStack.Screen options={{headerShown:false}} name='AllCradsScreen' component={AllCrads}/>
     </SettingsStack.Navigator>
   )
 };
@@ -63,7 +65,7 @@ const MainNavTab = () => {
         {({isTabBarVisible})=>(
           <NavigationContainer>
               <Tabs.Navigator initialRouteName="Home" screenOptions={{headerShown: false}} 
-              tabBar={props => isTabBarVisible ? <NavTab {...props} /> : null}>
+                tabBar={props => isTabBarVisible ? <NavTab {...props} /> : null}>
                   <Tabs.Screen name="Home" component={MyHomeStack}/>
                   <Tabs.Screen name="Cards" component={MyCardsStack}/>
                   <Tabs.Screen name="Statistics" component={MyStaticsStack}/>

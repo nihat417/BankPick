@@ -33,6 +33,7 @@ import BellSvg from '../assets/svg/BellSvg'
 import RightArrowSvg from '../assets/svg/RightArrowSvg'
 import SearchSvg from '../assets/svg/SearchSvg'
 import SelectedLangSvg from '../assets/svg/SelectedLangSvg'
+import AddCardBtnSvg from '../assets/svg/AddCardBtnSvg'
 
 import AzerbaijanFlag from '../assets/svg/countryFlags/AzerbaijanFlag'
 import EnglanFlag from '../assets/svg/countryFlags/EnglanFlag'
@@ -61,4 +62,4 @@ export {BankPickLogoSvg,EmailInputSvg,PasswordSvg,PasswordEyeOnSvg,PasswordEyeOf
     ,TabHomeSvg,TabStaticsSvg,TabMyCardsSvg,TabSettingsSvg,HomeSearchSvg,MasterCreditCardBack,RightArrowSvg,AzerbaijanFlag,
     VisaCreditCardFront,VisaCreditCardBack,RecieveSvg,SendISvg,TopUpSvgs,LoanSvg,MasterCardFrontSvg,EnglanFlag,ProfileBellSvg,
     SpainFlag, AppleSvg,SearchSvg,SelectedLangSvg,SpotifySvg,MonetTransferSvg,MarketSpendSvg,LogOut,ProfileSvg,
-    AddSvg,CardUnionSvg,BellSvg,TrukeyFalg,RussiaFalg,UserSvg,PaymentFinanceSvg,PaymentSvg,MessageSvg,LocationSvg}
+    AddSvg,CardUnionSvg,BellSvg,AddCardBtnSvg,TrukeyFalg,RussiaFalg,UserSvg,PaymentFinanceSvg,PaymentSvg,MessageSvg,LocationSvg}

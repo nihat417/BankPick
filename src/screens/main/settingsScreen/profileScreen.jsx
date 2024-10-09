@@ -23,7 +23,7 @@ const ProfileScreen = () => {
             <StyledButton onPress={()=>navigation.goBack()}>
                 <GoBackSvg/>
             </StyledButton>
-            <StyledText className='text-white text-[18px]'>Settings</StyledText>
+            <StyledText className='text-white text-[18px]'>Profile</StyledText>
             <StyledButton>
                 <ProfileSvg/>
             </StyledButton>
@@ -56,7 +56,7 @@ const ProfileScreen = () => {
                 <RightArrowSvg/>
             </StyledView>
         </StyledButton>
-        <StyledButton className='mx-[20px] mb-[10px] p-[10px] border-b-[1px] border-[#232533]'>
+        <StyledButton onPress={()=>navigation.navigate('AllCradsScreen')} className='mx-[20px] mb-[10px] p-[10px] border-b-[1px] border-[#232533]'>
             <StyledView className='flex-row justify-between'>
                 <StyledView className='flex-row'>
                     <PaymentFinanceSvg/>

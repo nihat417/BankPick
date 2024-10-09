@@ -96,7 +96,7 @@ const Mycards = () => {
             <StyledImage className='w-[50px] h-[50px]' source={require('../../../assets/images/mepht.png')}/>
             <StyledView className='mx-[20px]'>
               <StyledText className='text-[#7E848D] text-[12px]'>Welcome back,</StyledText>
-              <StyledText className='text-white text-[18px]'>Tanya Myroniuk</StyledText>
+              <StyledText className='text-white text-[18px]'>Nihat Akremi</StyledText>
             </StyledView>
           </StyledView>
           <HomeSearchSvg />
