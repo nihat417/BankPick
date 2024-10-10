@@ -34,6 +34,8 @@ import RightArrowSvg from '../assets/svg/RightArrowSvg'
 import SearchSvg from '../assets/svg/SearchSvg'
 import SelectedLangSvg from '../assets/svg/SelectedLangSvg'
 import AddCardBtnSvg from '../assets/svg/AddCardBtnSvg'
+import AllTransactionsSvg from '../assets/svg/AllTransactionsSvg'
+import XbuttonSvg from '../assets/svg/XbuttonSvg'
 
 import AzerbaijanFlag from '../assets/svg/countryFlags/AzerbaijanFlag'
 import EnglanFlag from '../assets/svg/countryFlags/EnglanFlag'
@@ -58,8 +60,8 @@ export const StyledButton = styled(TouchableOpacity);
 export const StyledScrollView = styled(ScrollView);
 export const StyledImage = styled(Image);
 
-export {BankPickLogoSvg,EmailInputSvg,PasswordSvg,PasswordEyeOnSvg,PasswordEyeOffSvg,GoBackSvg,RegisterPhoneSvg
+export {BankPickLogoSvg,EmailInputSvg,XbuttonSvg,PasswordSvg,PasswordEyeOnSvg,PasswordEyeOffSvg,GoBackSvg,RegisterPhoneSvg
     ,TabHomeSvg,TabStaticsSvg,TabMyCardsSvg,TabSettingsSvg,HomeSearchSvg,MasterCreditCardBack,RightArrowSvg,AzerbaijanFlag,
     VisaCreditCardFront,VisaCreditCardBack,RecieveSvg,SendISvg,TopUpSvgs,LoanSvg,MasterCardFrontSvg,EnglanFlag,ProfileBellSvg,
-    SpainFlag, AppleSvg,SearchSvg,SelectedLangSvg,SpotifySvg,MonetTransferSvg,MarketSpendSvg,LogOut,ProfileSvg,
+    SpainFlag,AllTransactionsSvg, AppleSvg,SearchSvg,SelectedLangSvg,SpotifySvg,MonetTransferSvg,MarketSpendSvg,LogOut,ProfileSvg,
     AddSvg,CardUnionSvg,BellSvg,AddCardBtnSvg,TrukeyFalg,RussiaFalg,UserSvg,PaymentFinanceSvg,PaymentSvg,MessageSvg,LocationSvg}

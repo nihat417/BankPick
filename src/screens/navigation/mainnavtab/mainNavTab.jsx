@@ -15,6 +15,9 @@ import PersonalInfo from '../../main/settingsScreen/personalInfo';
 import AllCrads from '../../main/settingsScreen/allCrads';
 import { AddCardBtnSvg } from '../../../common/StyledComponents';
 import AddCards from '../../main/settingsScreen/components/addCards';
+import ChangePassword from '../../main/settingsScreen/changePassword';
+import PrivacyPolicy from '../../main/settingsScreen/privacyPolicy';
+import AllTransactions from '../../main/statistics/allTransactions';
 
 
 const Tabs = createBottomTabNavigator();
@@ -44,6 +47,7 @@ const MyStaticsStack = () =>{
   return(
     <StaticsStack.Navigator>
       <StaticsStack.Screen options={{headerShown:false}} name='StatisticsPage' component={Statistic}/>
+      <StaticsStack.Screen options={{headerShown:false}} name='AllTransactionsPage' component={AllTransactions}/>
     </StaticsStack.Navigator>
   )
 };
@@ -57,6 +61,8 @@ const MySettingsStack = () =>{
       <SettingsStack.Screen options={{headerShown:false}} name='PersonalInfoScreen' component={PersonalInfo}/>
       <SettingsStack.Screen options={{headerShown:false}} name='AllCradsScreen' component={AllCrads}/>
       <SettingsStack.Screen options={{headerShown:false}} name='AddCardsScreen' component={AddCards}/>
+      <SettingsStack.Screen options={{headerShown:false}} name='ChangePasswordScreen' component={ChangePassword}/>
+      <SettingsStack.Screen options={{headerShown:false}} name='PrivacyPolicyScreen' component={PrivacyPolicy}/>
     </SettingsStack.Navigator>
   )
 };

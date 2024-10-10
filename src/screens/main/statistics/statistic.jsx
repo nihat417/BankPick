@@ -3,9 +3,11 @@ import React from 'react'
 import { GoBackSvg, StyledView,StyledText,StyledButton, BellSvg } from '../../../common/StyledComponents';
 import { LineChart } from "react-native-gifted-charts";
 import TransactionItem from '../home/components/transactionItem';
+import { useNavigation } from '@react-navigation/native';
 
 const Statistic = () => {
     const data =[{value: 0},{value: 20},{value: 18},{value: 40},{value: 36},{value: 60},{value: 54},{value: 85}];
+    const navigation = useNavigation();
 
   return (
     <StyledView className='bg-[#161622] h-screen'>
@@ -47,7 +49,7 @@ const Statistic = () => {
 
         <StyledView className='flex-row justify-between mx-[20px] mt-[60px] mb-[20px] items-center'>
             <StyledText className='text-white text-[18px]'>Transaction</StyledText>
-            <StyledButton>
+            <StyledButton onPress={()=>navigation.navigate('AllTransactionsPage')}>
                 <StyledText className='text-[#0066FF] text-[14px]'>See All</StyledText>
             </StyledButton>
         </StyledView>

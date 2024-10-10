@@ -45,12 +45,12 @@ const SettingsScreen = () => {
         <StyledText className='text-[#A2A2A7] text-[15px] self-start mx-[30px] my-[20px]'>Security</StyledText>
 
 
-        <StyledButton className='flex-row justify-between mx-[20px]  p-[10px] border-b-[1px] border-[#232533]'>
+        <StyledButton onPress={()=>navigation.navigate('ChangePasswordScreen')} className='flex-row justify-between mx-[20px]  p-[10px] border-b-[1px] border-[#232533]'>
             <StyledText className='text-white text-[17px]'>Change Password</StyledText>
             <RightArrowSvg/>
         </StyledButton>
 
-        <StyledButton className='flex-row justify-between mx-[20px] mt-[20px] p-[10px] border-b-[1px] border-[#232533]'>
+        <StyledButton onPress={()=>navigation.navigate('PrivacyPolicyScreen')} className='flex-row justify-between mx-[20px] mt-[20px] p-[10px] border-b-[1px] border-[#232533]'>
             <StyledText className='text-white text-[17px]'>Privacy Policy</StyledText>
             <RightArrowSvg/>
         </StyledButton>
