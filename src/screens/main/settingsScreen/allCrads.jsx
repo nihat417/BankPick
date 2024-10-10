@@ -42,7 +42,7 @@ const AllCrads = () => {
         </StyledScrollView>
         
 
-        <StyledButton className='absolute bottom-0 self-center mb-[40px] mx-[20px] rounded-[10px] bg-[#0066FF] p-[10px]'>
+        <StyledButton onPress={()=>navigation.navigate('AddCardsScreen')} className='absolute bottom-0 self-center mb-[40px] mx-[20px] rounded-[10px] bg-[#0066FF] p-[10px]'>
             <StyledView className='flex-row justify-center px-[100px] py-[10px] items-center'>
                 <StyledText className="text-white mr-[5px]">Add Card</StyledText>
                 <AddCardBtnSvg/>

@@ -13,6 +13,8 @@ import LanguageScreen from '../../main/settingsScreen/languageScreen';
 import ProfileScreen from '../../main/settingsScreen/profileScreen';
 import PersonalInfo from '../../main/settingsScreen/personalInfo';
 import AllCrads from '../../main/settingsScreen/allCrads';
+import { AddCardBtnSvg } from '../../../common/StyledComponents';
+import AddCards from '../../main/settingsScreen/components/addCards';
 
 
 const Tabs = createBottomTabNavigator();
@@ -54,6 +56,7 @@ const MySettingsStack = () =>{
       <SettingsStack.Screen options={{headerShown:false}} name='ProfileScreen' component={ProfileScreen}/>
       <SettingsStack.Screen options={{headerShown:false}} name='PersonalInfoScreen' component={PersonalInfo}/>
       <SettingsStack.Screen options={{headerShown:false}} name='AllCradsScreen' component={AllCrads}/>
+      <SettingsStack.Screen options={{headerShown:false}} name='AddCardsScreen' component={AddCards}/>
     </SettingsStack.Navigator>
   )
 };
