@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Dimensions, StyleSheet, useWindowDimensions } from 'react-native';
 import Animated, {useSharedValue,useAnimatedScrollHandler,useAnimatedStyle,interpolate,Extrapolate,} from 'react-native-reanimated';
-import {HomeSearchSvg,LoanSvg,RecieveSvg,SendISvg,StyledButton,StyledImage,StyledText,StyledView,TopUpSvgs,} from '../../../common/StyledComponents';
+import {BellSvg, HomeSearchSvg,LoanSvg,RecieveSvg,SendISvg,StyledButton,StyledImage,StyledText,StyledView,TopUpSvgs,} from '../../../common/StyledComponents';
 import CreditCardVisa from '../components/creditcardVisa';
 import TransactionItem from './components/transactionItem';
 
@@ -27,7 +27,7 @@ const transactions = [
   { id: '16', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
 ];
 
-const Mycards = () => {
+const Home = () => {
   const { width } = useWindowDimensions();
 
   const scrollY = useSharedValue(0);
@@ -99,7 +99,7 @@ const Mycards = () => {
               <StyledText className='text-white text-[18px]'>Nihat Akremi</StyledText>
             </StyledView>
           </StyledView>
-          <HomeSearchSvg />
+          <BellSvg />
         </StyledView>
 
         <StyledView style={{ marginHorizontal, marginVertical: 20 }}>
@@ -184,4 +184,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Mycards;
+export default Home;
