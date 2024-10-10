@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Dimensions, StyleSheet, useWindowDimensions } from 'react-native';
-import Animated, {useSharedValue,useAnimatedScrollHandler,useAnimatedStyle,interpolate,Extrapolate,} from 'react-native-reanimated';
+import { Dimensions, StyleSheet, useWindowDimensions,TouchableOpacity } from 'react-native';
+import Animated, {useSharedValue,useAnimatedScrollHandler,useAnimatedStyle,interpolate,Extrapolate,withTiming} from 'react-native-reanimated';
 import {BellSvg, HomeSearchSvg,LoanSvg,RecieveSvg,SendISvg,StyledButton,StyledImage,StyledText,StyledView,TopUpSvgs,} from '../../../common/StyledComponents';
+import { BlurView } from '@react-native-community/blur';
 import CreditCardVisa from '../components/creditcardVisa';
 import TransactionItem from './components/transactionItem';
 
@@ -37,6 +38,34 @@ const Home = () => {
       scrollY.value = event.contentOffset.y;
     },
   });
+
+  const isPanelVisible = useSharedValue(false);
+  const PANEL_HEIGHT = height * 0.7;
+
+  const panelAnimatedStyle = useAnimatedStyle(() => {
+    return {
+      transform: [
+        {
+          translateY: isPanelVisible.value
+            ? withTiming(0, { duration: 300 })
+            : withTiming(PANEL_HEIGHT, { duration: 300 }),
+        },
+      ],
+    };
+  });
+
+  const blurAnimatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: isPanelVisible.value
+        ? withTiming(1, { duration: 300 })
+        : withTiming(0, { duration: 300 }),
+      display: isPanelVisible.value ? 'flex' : 'none',
+    };
+  });
+
+  const togglePanel = () => {
+    isPanelVisible.value = !isPanelVisible.value;
+  };
 
   const headerAnimatedStyle = useAnimatedStyle(() => {
     const translateY = interpolate(
@@ -99,7 +128,9 @@ const Home = () => {
               <StyledText className='text-white text-[18px]'>Nihat Akremi</StyledText>
             </StyledView>
           </StyledView>
-          <BellSvg />
+          <StyledButton onPress={togglePanel}>
+            <BellSvg />
+          </StyledButton>
         </StyledView>
 
         <StyledView style={{ marginHorizontal, marginVertical: 20 }}>
@@ -149,8 +180,23 @@ const Home = () => {
         onScroll={scrollHandler}
         scrollEventThrottle={16} 
         showsVerticalScrollIndicator={false}
-        style={styles.flatList}
-      />
+        style={styles.flatList}/>
+
+      <Animated.View
+        style={[
+          styles.panel,
+          {
+            height: PANEL_HEIGHT,
+            width: width,
+            bottom: 0,
+          },
+          panelAnimatedStyle,
+        ]}
+      >
+        <StyledView style={styles.panelContent}>
+          <StyledText style={styles.panelTitle}>Category Chart</StyledText>
+        </StyledView>
+      </Animated.View>
     </StyledView>
   );
 };
@@ -166,12 +212,12 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     height: HEADER_HEIGHT,
-    backgroundColor: '#161622', 
-    zIndex: 1, 
+    backgroundColor: '#161622',
+    zIndex: 1,
   },
   transactionHeader: {
     position: 'absolute',
-    top: HEADER_HEIGHT + 270, 
+    top: HEADER_HEIGHT + 270,
     left: 30,
     color: 'white',
     fontWeight: 'bold',
@@ -181,6 +227,24 @@ const styles = StyleSheet.create({
   flatList: {
     flex: 1,
     marginBottom: 40,
+  },
+  panel: {
+    position: 'absolute',
+    left: 0,
+    backgroundColor: '#1E1E2D',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    padding: 20,
+    zIndex: 2,
+  },
+  panelContent: {
+    flex: 1,
+  },
+  panelTitle: {
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
   },
 });
 
