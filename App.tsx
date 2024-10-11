@@ -6,6 +6,7 @@ import AuthNavigation from './src/screens/navigation/authNavigation/authNavigati
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Register from './src/screens/auth/register/register';
 import MainNavTab from './src/screens/navigation/mainnavtab/mainNavTab';
+import OnboardingScreen from './src/screens/onboardingScreen';
 
 function App(): React.JSX.Element {
   const [authorized,setAuthorized] = useState(true);
@@ -15,7 +16,7 @@ function App(): React.JSX.Element {
     <SafeAreaProvider>
       <SafeAreaView  style={{ flex: 1, backgroundColor: '#161622' }}>
           <StatusBar backgroundColor='#161622'/>
-          {authorized ? <MainNavTab/> : <AuthNavigation/>}
+          {authorized ? <OnboardingScreen/> : <AuthNavigation/>}
       </SafeAreaView>
     </SafeAreaProvider>
   );

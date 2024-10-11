@@ -54,6 +54,13 @@ import PaymentSvg from '../assets/svg/profileSvgs/PaymentSvg'
 import UserSvg from '../assets/svg/profileSvgs/UserSvg'
 
 
+import FirstIntro from '../assets/svg/oboardingSvgs/FirstIntro'
+import SecondIntro from '../assets/svg/oboardingSvgs/SecondIntro'
+import LastIntro from '../assets/svg/oboardingSvgs/LastIntro'
+
+
+
+
 export const StyledView = styled(View);
 export const StyledText = styled(Text);
 export const StyledInput = styled(TextInput);
@@ -61,7 +68,7 @@ export const StyledButton = styled(TouchableOpacity);
 export const StyledScrollView = styled(ScrollView);
 export const StyledImage = styled(Image);
 
-export {BankPickLogoSvg,EmailInputSvg,XbuttonSvg,PasswordSvg,PasswordEyeOnSvg,PasswordEyeOffSvg,GoBackSvg,RegisterPhoneSvg
+export {BankPickLogoSvg,EmailInputSvg,LastIntro,FirstIntro,SecondIntro,XbuttonSvg,PasswordSvg,PasswordEyeOnSvg,PasswordEyeOffSvg,GoBackSvg,RegisterPhoneSvg
     ,TabHomeSvg,TabStaticsSvg,TabMyCardsSvg,TabSettingsSvg,HomeSearchSvg,MasterCreditCardBack,RightArrowSvg,AzerbaijanFlag,
     VisaCreditCardFront,VisaCreditCardBack,RecieveSvg,SendISvg,TopUpSvgs,LoanSvg,MasterCardFrontSvg,EnglanFlag,ProfileBellSvg,
     SpainFlag,AllTransactionsSvg, AppleSvg,SearchSvg,SelectedLangSvg,SpotifySvg,MonetTransferSvg,MarketSpendSvg,LogOut,ProfileSvg,
