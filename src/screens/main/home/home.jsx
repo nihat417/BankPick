@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Dimensions, StyleSheet, useWindowDimensions,TouchableOpacity } from 'react-native';
 import Animated, {useSharedValue,useAnimatedScrollHandler,useAnimatedStyle,interpolate,Extrapolate,withTiming} from 'react-native-reanimated';
 import {BellSvg, HomeSearchSvg,LoanSvg,RecieveSvg,SendISvg,StyledButton,StyledImage,StyledText,StyledView,TopUpSvgs,} from '../../../common/StyledComponents';
@@ -29,6 +29,7 @@ const transactions = [
 ];
 
 const Home = () => {
+  const [isPanelVisible, setIsPanelVisible] = useState(false);
   const { width } = useWindowDimensions();
 
   const scrollY = useSharedValue(0);
@@ -39,32 +40,32 @@ const Home = () => {
     },
   });
 
-  const isPanelVisible = useSharedValue(false);
+  const isPanelVisibleShared = useSharedValue(false);
   const PANEL_HEIGHT = height * 0.7;
+
+  useEffect(() => {
+    isPanelVisibleShared.value = isPanelVisible ? 1 : 0;
+  }, [isPanelVisible]);
 
   const panelAnimatedStyle = useAnimatedStyle(() => {
     return {
       transform: [
         {
-          translateY: isPanelVisible.value
-            ? withTiming(0, { duration: 300 })
-            : withTiming(PANEL_HEIGHT, { duration: 300 }),
+          translateY: withTiming(isPanelVisibleShared.value ? 0 : PANEL_HEIGHT, { duration: 300 }),
         },
       ],
     };
   });
-
+  
   const blurAnimatedStyle = useAnimatedStyle(() => {
     return {
-      opacity: isPanelVisible.value
-        ? withTiming(1, { duration: 300 })
-        : withTiming(0, { duration: 300 }),
-      display: isPanelVisible.value ? 'flex' : 'none',
+      opacity: withTiming(isPanelVisibleShared.value ? 1 : 0, { duration: 300 }),
+      display: isPanelVisibleShared.value ? 'flex' : 'none',
     };
   });
 
   const togglePanel = () => {
-    isPanelVisible.value = !isPanelVisible.value;
+    setIsPanelVisible((prev) => !prev);
   };
 
   const headerAnimatedStyle = useAnimatedStyle(() => {
@@ -118,11 +119,14 @@ const Home = () => {
 
   return (
     <StyledView style={styles.container}>
+      {/* Header */}
       <Animated.View style={[styles.header, headerAnimatedStyle]}>
-        {/* Header */}
         <StyledView className='flex-row m-[20px] justify-between items-center'>
           <StyledView className='flex-row items-center'>
-            <StyledImage className='w-[50px] h-[50px]' source={require('../../../assets/images/mepht.png')}/>
+            <StyledImage 
+              className='w-[50px] h-[50px]' 
+              source={require('../../../assets/images/mepht.png')}
+            />
             <StyledView className='mx-[20px]'>
               <StyledText className='text-[#7E848D] text-[12px]'>Welcome back,</StyledText>
               <StyledText className='text-white text-[18px]'>Nihat Akremi</StyledText>
@@ -161,6 +165,7 @@ const Home = () => {
         </Animated.Text>
       </Animated.View>
 
+      {/* Transactions List */}
       <AnimatedFlatList
         data={transactions}
         keyExtractor={(item) => item.id}
@@ -180,8 +185,26 @@ const Home = () => {
         onScroll={scrollHandler}
         scrollEventThrottle={16} 
         showsVerticalScrollIndicator={false}
-        style={styles.flatList}/>
+        style={styles.flatList}
+      />
 
+      {/* Overlay to detect taps outside the panel */}
+      {isPanelVisible && (
+        <TouchableOpacity 
+          style={styles.overlay} 
+          activeOpacity={1} 
+          onPress={togglePanel}
+        >
+          <BlurView
+            style={StyleSheet.absoluteFill}
+            blurType="light"
+            blurAmount={10}
+            reducedTransparencyFallbackColor="rgba(0,0,0,0.5)"
+          />
+        </TouchableOpacity>
+      )}
+
+      {/* Sliding Panel */}
       <Animated.View
         style={[
           styles.panel,
@@ -195,6 +218,7 @@ const Home = () => {
       >
         <StyledView style={styles.panelContent}>
           <StyledText style={styles.panelTitle}>Category Chart</StyledText>
+          {/* Add your panel content here */}
         </StyledView>
       </Animated.View>
     </StyledView>
@@ -235,7 +259,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     padding: 20,
-    zIndex: 2,
+    zIndex: 3, 
   },
   panelContent: {
     flex: 1,
@@ -245,6 +269,14 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 10,
+  },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 2,
   },
 });
 
