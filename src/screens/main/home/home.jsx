@@ -1,7 +1,8 @@
 import React, { useState,useEffect } from 'react';
-import { Dimensions, StyleSheet, useWindowDimensions,TouchableOpacity } from 'react-native';
+import { Dimensions,View,Text, StyleSheet, useWindowDimensions,TouchableOpacity } from 'react-native';
 import Animated, {useSharedValue,useAnimatedScrollHandler,useAnimatedStyle,interpolate,Extrapolate,withTiming} from 'react-native-reanimated';
 import {BellSvg, HomeSearchSvg,LoanSvg,RecieveSvg,SendISvg,StyledButton,StyledImage,StyledText,StyledView,TopUpSvgs,} from '../../../common/StyledComponents';
+import { PieChart } from "react-native-gifted-charts";
 import { BlurView } from '@react-native-community/blur';
 import CreditCardVisa from '../components/creditcardVisa';
 import TransactionItem from './components/transactionItem';
@@ -26,6 +27,18 @@ const transactions = [
   { id: '14', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
   { id: '15', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
   { id: '16', type: 'moneyTransfer', nameCompany: 'Bank Transfer', companyType: 'Money Transfer', spendedMoney: '+ $100' },
+];
+
+const pieData = [
+  {
+    value: 47,
+    color: '#009FFF',
+    gradientCenterColor: '#006DFF',
+    focused: true,
+  },
+  {value: 40, color: '#93FCF8', gradientCenterColor: '#3BE9DE'},
+  {value: 16, color: '#BDB2FA', gradientCenterColor: '#8F80F3'},
+  {value: 3, color: '#FFA5BA', gradientCenterColor: '#FF7F97'},
 ];
 
 const Home = () => {
@@ -116,6 +129,66 @@ const Home = () => {
   });
 
   const marginHorizontal = width * 0.05;
+
+  const renderDot = color => {
+    return (
+      <View
+        style={{
+          height: 10,
+          width: 10,
+          borderRadius: 5,
+          backgroundColor: color,
+          marginRight: 10,
+        }}
+      />
+    );
+  };
+
+  const renderLegendComponent = () => {
+    return (
+      <>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'center',
+            marginBottom: 10,
+          }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              width: 120,
+              marginRight: 20,
+            }}>
+            {renderDot('#006DFF')}
+            <Text style={{color: 'white'}}>Excellent: 47%</Text>
+          </View>
+          <View
+            style={{flexDirection: 'row', alignItems: 'center', width: 120}}>
+            {renderDot('#8F80F3')}
+            <Text style={{color: 'white'}}>Okay: 16%</Text>
+          </View>
+        </View>
+        <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              width: 120,
+              marginRight: 20,
+            }}>
+            {renderDot('#3BE9DE')}
+            <Text style={{color: 'white'}}>Good: 40%</Text>
+          </View>
+          <View
+            style={{flexDirection: 'row', alignItems: 'center', width: 120}}>
+            {renderDot('#FF7F97')}
+            <Text style={{color: 'white'}}>Poor: 3%</Text>
+          </View>
+        </View>
+      </>
+    );
+  };
 
   return (
     <StyledView style={styles.container}>
@@ -218,7 +291,28 @@ const Home = () => {
       >
         <StyledView style={styles.panelContent}>
           <StyledText style={styles.panelTitle}>Category Chart</StyledText>
-          {/* Add your panel content here */}
+              <View style={{padding: 20, alignItems: 'center'}}>
+                <PieChart
+                  data={pieData}
+                  donut
+                  showGradient
+                  sectionAutoFocus
+                  radius={90}
+                  innerRadius={60}
+                  innerCircleColor={'#232B5D'}
+                  centerLabelComponent={() => {
+                    return (
+                      <View style={{justifyContent: 'center', alignItems: 'center'}}>
+                        <Text style={{fontSize: 22, color: 'white', fontWeight: 'bold'}}>
+                          55%
+                        </Text>
+                        <Text style={{fontSize: 14, color: 'white'}}>Transaction</Text>
+                      </View>
+                    );
+                  }}
+                />
+              </View>
+              {renderLegendComponent()}
         </StyledView>
       </Animated.View>
     </StyledView>
