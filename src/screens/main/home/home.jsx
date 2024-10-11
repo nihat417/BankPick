@@ -1,11 +1,12 @@
 import React, { useState,useEffect } from 'react';
 import { Dimensions,View,Text, StyleSheet, useWindowDimensions,TouchableOpacity } from 'react-native';
 import Animated, {useSharedValue,useAnimatedScrollHandler,useAnimatedStyle,interpolate,Extrapolate,withTiming} from 'react-native-reanimated';
-import {BellSvg, HomeSearchSvg,LoanSvg,RecieveSvg,SendISvg,StyledButton,StyledImage,StyledText,StyledView,TopUpSvgs,} from '../../../common/StyledComponents';
+import {BellSvg, HomeSearchSvg,LoanSvg,RecieveSvg,SendISvg,StyledButton,StyledImage,StyledScrollView,StyledText,StyledView,TopUpSvgs,} from '../../../common/StyledComponents';
 import { PieChart } from "react-native-gifted-charts";
 import { BlurView } from '@react-native-community/blur';
 import CreditCardVisa from '../components/creditcardVisa';
 import TransactionItem from './components/transactionItem';
+import { useNavigation } from '@react-navigation/native';
 
 const AnimatedFlatList = Animated.FlatList;
 
@@ -44,6 +45,7 @@ const pieData = [
 const Home = () => {
   const [isPanelVisible, setIsPanelVisible] = useState(false);
   const { width } = useWindowDimensions();
+  const navigation = useNavigation();
 
   const scrollY = useSharedValue(0);
 
@@ -54,7 +56,7 @@ const Home = () => {
   });
 
   const isPanelVisibleShared = useSharedValue(false);
-  const PANEL_HEIGHT = height * 0.7;
+  const PANEL_HEIGHT = height * 0.8;
 
   useEffect(() => {
     isPanelVisibleShared.value = isPanelVisible ? 1 : 0;
@@ -197,8 +199,8 @@ const Home = () => {
         <StyledView className='flex-row m-[20px] justify-between items-center'>
           <StyledView className='flex-row items-center'>
             <StyledImage 
-              className='w-[50px] h-[50px]' 
-              source={require('../../../assets/images/mepht.png')}
+              className='w-[50px] h-[50px] rounded-full'
+              source={require('../../../assets/images/mephoto.jpg')}
             />
             <StyledView className='mx-[20px]'>
               <StyledText className='text-[#7E848D] text-[12px]'>Welcome back,</StyledText>
@@ -215,7 +217,7 @@ const Home = () => {
         </StyledView>
 
         <StyledView className='flex-row justify-between mx-[30px] my-[20px]'>
-          <StyledButton>
+          <StyledButton onPress={()=>navigation.navigate('SendMoneyScreen')}>
             <SendISvg />
             <StyledText className='text-[#A2A2A7] text-center my-[10px]'>Send</StyledText>
           </StyledButton>
@@ -289,7 +291,7 @@ const Home = () => {
           panelAnimatedStyle,
         ]}
       >
-        <StyledView style={styles.panelContent}>
+        <StyledScrollView style={styles.panelContent}>
           <StyledText style={styles.panelTitle}>Category Chart</StyledText>
               <View style={{padding: 20, alignItems: 'center'}}>
                 <PieChart
@@ -313,7 +315,31 @@ const Home = () => {
                 />
               </View>
               {renderLegendComponent()}
-        </StyledView>
+              <StyledView className='flex-row justify-between mt-[30px]'>
+                <StyledText className='text-white text-[18px]'>Transaction History</StyledText>
+                <StyledText className='text-[#0066FF] text-[14px]'>See All</StyledText>
+              </StyledView>
+
+              <StyledView className='mt-[10px]'>
+                <StyledText className='text-[#A2A2A7] text-[14px]'>Today</StyledText>
+                <StyledView className='mt-[10px]'>
+                  <TransactionItem type="spotify" nameCompany='Spotify' companyType='Music Streaming' spendedMoney='- $10' />
+                </StyledView>
+              </StyledView>
+              <StyledView className='mt-[10px]'>
+                <StyledText className='text-[#A2A2A7] text-[14px]'>Last 7 Day</StyledText>
+                <StyledView className='mt-[10px]'>
+                  <TransactionItem type="spotify" nameCompany='Spotify' companyType='Music Streaming' spendedMoney='- $10' />
+                </StyledView>
+                <StyledView className='mt-[10px]'>
+                  <TransactionItem type="marketSpend" nameCompany='Amazon' companyType='Online Shopping' spendedMoney='- $15' />
+                </StyledView>
+                <StyledView className='mt-[10px]'>
+                  <TransactionItem type="apple" nameCompany='Apple' companyType='App Store' spendedMoney='- $120' />
+                </StyledView>
+              </StyledView>
+              <StyledView className='mb-[50px]'/>
+        </StyledScrollView>
       </Animated.View>
     </StyledView>
   );

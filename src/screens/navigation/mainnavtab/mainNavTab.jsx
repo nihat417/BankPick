@@ -13,11 +13,11 @@ import LanguageScreen from '../../main/settingsScreen/languageScreen';
 import ProfileScreen from '../../main/settingsScreen/profileScreen';
 import PersonalInfo from '../../main/settingsScreen/personalInfo';
 import AllCrads from '../../main/settingsScreen/allCrads';
-import { AddCardBtnSvg } from '../../../common/StyledComponents';
 import AddCards from '../../main/settingsScreen/components/addCards';
 import ChangePassword from '../../main/settingsScreen/changePassword';
 import PrivacyPolicy from '../../main/settingsScreen/privacyPolicy';
 import AllTransactions from '../../main/statistics/allTransactions';
+import SendMoney from '../../main/home/sendMoney';
 
 
 const Tabs = createBottomTabNavigator();
@@ -31,6 +31,7 @@ const MyHomeStack = () => {
     return (
       <HomeStack.Navigator initialRouteName='HomePage'>
         <HomeStack.Screen options={{headerShown: false}} name="HomePage" component={Home}/>
+        <HomeStack.Screen options={{headerShown: false}} name="SendMoneyScreen" component={SendMoney}/>
       </HomeStack.Navigator>
     );
   };
