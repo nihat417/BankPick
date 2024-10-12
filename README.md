@@ -55,6 +55,15 @@ Now that you have successfully run the app, let's modify it.
 
    For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
 
+
+## Screenshots
+
+![Home](https://www.dropbox.com/scl/fi/k0d1dlnwzcqmqs35areil/Home.png?rlkey=kxq81nck3r7wmhqlca2qo12dg&st=ovho0ruk&raw=1)
+![My Cards](https://www.dropbox.com/scl/fi/9kbzury0bjxofotts5oiv/My-Cards.png?rlkey=j61u1nqpexwz3ougjmob7ncso&st=4yrq7aws&raw=1)
+![Statistics](https://www.dropbox.com/scl/fi/wegd0x9olto1phw6jpleu/Statistics.png?rlkey=4jdgd54syt3pmrpxwbktejzls&st=gaiqkxb1&raw=1)
+![History](https://www.dropbox.com/scl/fi/7z7dtrty8sflz5gog6azi/History.png?rlkey=92tg54mefz38c93dki0idy27a&st=h7ectj15&raw=1)
+
+
 ## Congratulations! :tada:
 
 You've successfully run and modified your React Native App. :partying_face:
